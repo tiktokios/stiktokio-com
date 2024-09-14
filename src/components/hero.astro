@@ -1,136 +1,128 @@
 ---
-import { Image } from "astro:assets";
-import Cobe from "@components/cobe.astro";
-import Link from "@components/ui/link.astro";
-import abstractDottedGlobeIllustration from "assets/abstract-dotted-globe-illustration.png";
-import { t } from "i18next";
-
-const { dynamic = false } = Astro.props;
+import Link from '@components/ui/link.astro';
+const { heading, subheading } = Astro.props;
 ---
 
-<div class="relative isolate pt-14 dark:bg-stone-950">
-	<div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-		<svg
-			class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem] animate-slide"
-			viewBox="0 0 1155 678">
-			<path
-				fill="url(#9b2541ea-d39d-499b-bd42-aeea3e93f5ff)"
-				fill-opacity=".3"
-				d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z">
-			</path>
-			<defs>
-				<linearGradient
-					id="9b2541ea-d39d-499b-bd42-aeea3e93f5ff"
-					x1="1155.49"
-					x2="-78.208"
-					y1=".177"
-					y2="474.645"
-					gradientUnits="userSpaceOnUse">
-					<stop stop-color="#9089FC"></stop>
-					<stop offset="1" stop-color="#FFD580"></stop>
-				</linearGradient>
-			</defs>
-		</svg>
-	</div>
-	<div class="sm:pt-10">
-		<div class="mx-auto max-w-7xl">
-			<div class="mx-auto max-w-2xl text-center">
-				<h1 class="text-4xl font-bold tracking-tight text-black dark:text-white sm:text-6xl">{t("hero.title")}</h1>
-				<p class="mt-6 text-lg leading-8 text-gray-900 dark:text-gray-100">
-					{t("hero.subtitle")}
-				</p>
-				<div class="mt-10 flex items-center justify-center gap-x-2 md:gap-x-6">
-					<Link href="https://github.com/zankhq/astros">{t("hero.main_button_text")}</Link>
-					{
-						dynamic ? (
-							<Link href="/" style="muted">
-								{t("hero_animated.secondary_button_text")}
-								<span aria-hidden="true" class="pl-1 text-black dark:text-white">
-									→
-								</span>
-							</Link>
-						) : (
-							<Link href="/animated" style="muted">
-								{t("hero.secondary_button_text")}
-								<span aria-hidden="true" class="pl-1 text-black dark:text-white">
-									→
-								</span>
-							</Link>
-						)
-					}
-				</div>
-			</div>
-			<div class="flex justify-center items-center mt-4 md:mt-8">
-				{
-					dynamic ? (
-						<>
-							<h2
-								class="text-2xl md:text-4xl max-w-2xl text-center font-bold tracking-tight text-black dark:text-white absolute"
-								style="line-height: 1.5">
-								{t("hero.globe_title")}
-							</h2>
-							<Cobe />
-						</>
-					) : (
-						<Image
-							class="inline-block mt-12 md:mt-20"
-							src={abstractDottedGlobeIllustration}
-							alt="Astros"
-							width={600}
-							height={600}
-							loading="eager"
-						/>
-					)
-				}
-			</div>
-		</div>
-	</div>
-	<div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
-		<svg
-			class="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:h-[42.375rem] animate-slide"
-			viewBox="0 0 1155 678">
-			<path
-				fill="url(#b9e4a85f-ccd5-4151-8e84-ab55c66e5aa1)"
-				fill-opacity=".3"
-				d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z">
-			</path>
-			<defs>
-				<linearGradient
-					id="b9e4a85f-ccd5-4151-8e84-ab55c66e5aa1"
-					x1="1155.49"
-					x2="-78.208"
-					y1=".177"
-					y2="474.645"
-					gradientUnits="userSpaceOnUse">
-					<stop stop-color="#9089FC">
-						<animate attributeName="stop-color" values="#9089FC; #FF80B5; #9089FC" dur="5s" repeatCount="indefinite"></animate>
-					</stop>
-					<stop offset="1" stop-color="#ffb6c1">
-						<animate attributeName="stop-color" values="#ffb6c1; #9089FC; #ffb6c1" dur="5s" repeatCount="indefinite"></animate>
-					</stop>
-				</linearGradient>
-			</defs>
-		</svg>
-	</div>
+<div class="relative isolate px-6 pt-10 lg:px-8 pb-28 rounded-lg bg-gray-800">
+    <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true"></div>
+    <div class="mx-auto max-w-2xl">
+        <div class="hidden sm:mb-8 sm:flex sm:justify-center">
+            <div class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20"></div>
+        </div>
+        <div class="text-center">
+            <h1 class="text-4xl font-bold tracking-tight text-white">{heading}</h1>
+            <p class="mt-2 text-lg leading-8 text-gray-300">{subheading}</p>
+        </div>
+        <div class="flex items-center justify-center mt-5 space-x-2 flex-wrap">
+            <Link
+                href="/"
+                class="flex items-center px-4 py-2 bg-white-800 text-black font-semibold rounded-s shadow-md transition-colors duration-300 ease-in-out hover:bg-gray-200 active:bg-gray-200 my-1"
+            >
+                <span class="ml-1">TikTok Video</span>
+            </Link>
+            <Link
+                href="/tiktok-sound-downloader"
+                class="flex items-center px-8 py-2 bg-white bg-opacity-70 text-black font-semibold rounded-s shadow-md transition-colors duration-300 ease-in-out hover:bg-gray-100 hover:bg-opacity-80 active:bg-gray-200 my-1"
+            >
+                <span class="ml-1">MP3</span>
+            </Link>
+            <Link
+                href="/tiktok-slideshow-downloader"
+                class="flex items-center px-8 py-2 bg-white bg-opacity-70 text-black font-semibold rounded-s shadow-md transition-colors duration-300 ease-in-out hover:bg-gray-100 hover:bg-opacity-80 active:bg-gray-200 my-1"
+            >
+                <span class="ml-1">Photo</span>
+            </Link>
+            <Link
+                href="/tiktok-story-downloader"
+                class="flex items-center px-8 py-2 bg-white bg-opacity-70 text-black font-semibold rounded-s shadow-md transition-colors duration-300 ease-in-out hover:bg-gray-100 hover:bg-opacity-80 active:bg-gray-200 my-1"
+            >
+                <span class="ml-1">Story</span>
+            </Link>
+        </div>
+        <div class="relative max-w-xl mx-auto mt-8">
+            <div class="block items-center sm:space-x-4 sm:flex">
+                <div class="relative flex-1">
+                    <input
+                        type="text"
+                        placeholder="Paste your link here..."
+                        class="w-full pr-12 pl-4 py-3 outline-none rounded-lg bg-gray-900 text-white placeholder-gray-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                        style="box-shadow: 0 0 2px rgb(255, 255, 255) !important;"
+                    />
+                </div>
+                <button
+                    class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 hover:from-indigo-600 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 outline-none
+                    mt-2 sm:mt-0 w-full sm:w-auto"
+                >
+                    Download
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-gradient-to-br py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-extrabold text-white text-center mb-12 shadow-text">Download Your Favorite Resolution Video</h2>
+        <div class="flex flex-wrap justify-center gap-8">
+            <div class="bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform transition-all duration-300 w-96 xl:w-1/3">
+                <div class="p-6">
+                    <img
+                        src="https://p16-sign.tiktokcdn-us.com/obj/tos-useast5-p-0068-tx/2c3a26ded6a94b4cbed9ef054ad93184_1725967888?lk3s=d05b14bd&nonce=50729&refresh_token=08040594917293fe340770bc98c834a6&x-expires=1726380000&x-signature=29sp64WW7%2FweDyZCZWwivWtmLNY%3D&s=AWEME_DETAIL&se=false&sh=&sc=dynamic_cover&l=2024091406065868CABA3744869B15DFD2&shp=d05b14bd&shcp=-"
+                        alt="TikTok Video 3"
+                        class="w-full h-full object-cover rounded-lg mb-6"
+                    />
+                    <h3 class="text-2xl font-semibold text-white text-center mb-4">علی محمد خان نے آج قوم کی ترجمانی کی ہے 🔥🔥 #khanlover1 #tranding #video #Grow #account @TikTok</h3>
+                    <div class="space-y-3">
+                        <a
+                            href="#"
+                            class="block w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 px-4 rounded-lg text-center transition-all duration-300 hover:from-pink-600 hover:to-purple-600 hover:shadow-lg"
+                        >
+                            Download Without Watermark
+                        </a>
+                        <a
+                            href="#"
+                            class="block w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold py-3 px-4 rounded-lg text-center transition-all duration-300 hover:from-blue-600 hover:to-indigo-600 hover:shadow-lg"
+                        >
+                            Download Without Watermark (HD)
+                        </a>
+                        <a
+                            href="#"
+                            class="block w-full bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold py-3 px-4 rounded-lg text-center transition-all duration-300 hover:from-pink-600 hover:to-red-600 hover:shadow-lg"
+                        >
+                            Download Watermark
+                        </a>
+                        <a
+                            href="#"
+                            class="block w-full bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold py-3 px-4 rounded-lg text-center transition-all duration-300 hover:from-green-600 hover:to-teal-600 hover:shadow-lg"
+                        >
+                            Download MP3 Audio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <style>
-	@keyframes slide {
-		0% {
-			left: calc(50% - 70rem);
-			transform: rotate(0deg);
-		}
-		50% {
-			left: calc(50% - 30rem);
-			transform: rotate(-180deg);
-		}
-		100% {
-			left: calc(50% - 70rem);
-			transform: rotate(0deg);
-		}
-	}
-
-	.animate-slide {
-		animation: slide 25s infinite;
-	}
+    .shadow-text {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .flex > div {
+        align-self: flex-start;
+    }
 </style>
+
+<script>
+    import h from '../assets/js/s';
+
+    const e = [
+        77.0, 107.0, 126.0, 119.0, 38.0, 108.0, 118.0, 38.0, 107.0, 126.0, 128.0, 110.0, 108.0, 113.0, 106.0, 52.0, 38.0, 107.0, 126.0, 128.0, 110.0, 108.0, 113.0, 106.0, 38.0, 108.0, 118.0, 38.0,
+        112.0, 114.0, 118.0, 119.0, 38.0, 115.0, 114.0, 122.0, 104.0, 117.0, 105.0, 120.0, 111.0, 38.0, 127.0, 120.0, 119.0, 38.0, 128.0, 114.0, 103.0, 104.0, 117.0, 38.0, 126.0, 117.0, 104.0, 38.0,
+        113.0, 114.0, 119.0, 38.0, 126.0, 38.0, 107.0, 126.0, 128.0, 110.0, 104.0, 117.0, 52.0,
+    ];
+    const s = 10;
+    const r = 6;
+
+    console.log(h(e, s, r));
+</script>

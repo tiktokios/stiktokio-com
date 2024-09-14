@@ -1,7 +1,7 @@
 {
-	"name": "astros",
+	"name": "astro",
 	"type": "module",
-	"version": "1.0.1",
+	"version": "1.8.3",
 	"private": true,
 	"scripts": {
 		"dev": "astro dev --host",
@@ -49,5 +49,17 @@
 		"rehype": "^13.0.1",
 		"sharp": "^0.33.3",
 		"workbox-window": "^7.0.0"
-	}
+	},
+	"description": "no",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/one-person-coder/another.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/one-person-coder/another/issues"
+	},
+	"homepage": "https://github.com/one-person-coder/another#readme"
 }
