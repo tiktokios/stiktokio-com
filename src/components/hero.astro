@@ -40,66 +40,37 @@ const { heading, subheading } = Astro.props;
             </Link>
         </div>
         <div class="relative max-w-xl mx-auto mt-8">
-            <div class="block items-center sm:space-x-4 sm:flex">
+            <form class="block items-center sm:space-x-4 sm:flex sub-form">
                 <div class="relative flex-1">
                     <input
                         type="text"
                         placeholder="Paste your link here..."
-                        class="w-full pr-12 pl-4 py-3 outline-none rounded-lg bg-gray-900 text-white placeholder-gray-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                        class="w-full pr-12 pl-4 py-3 outline-none rounded-lg bg-gray-900 text-white placeholder-gray-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent down-url"
                         style="box-shadow: 0 0 2px rgb(255, 255, 255) !important;"
                     />
                 </div>
                 <button
                     class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 hover:from-indigo-600 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 outline-none
-                    mt-2 sm:mt-0 w-full sm:w-auto"
+                    mt-2 sm:mt-0 w-full sm:w-auto send-btn cursor-pointer"
+                    type="submit"
                 >
                     Download
                 </button>
-            </div>
+            </form>
         </div>
     </div>
 </div>
 
-<div class="bg-gradient-to-br py-16 px-4 sm:px-6 lg:px-8">
+<div class="loader items-center justify-center hidden">
+    <img src="/src/icons/loader.webp" alt="" />
+</div>
+
+<div class="bg-gradient-to-br py-16 px-4 sm:px-6 lg:px-8 main-div hidden">
     <div class="max-w-7xl mx-auto">
-        <h2 class="text-4xl font-extrabold text-white text-center mb-12 shadow-text">Download Your Favorite Resolution Video</h2>
+        <h2></h2>
+        <h2 class="text-2xl font-extrabold text-center mb-4 shadow-text msg"></h2>
         <div class="flex flex-wrap justify-center gap-8">
-            <div class="bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform transition-all duration-300 w-96 xl:w-1/3">
-                <div class="p-6">
-                    <img
-                        src="https://p16-sign.tiktokcdn-us.com/obj/tos-useast5-p-0068-tx/2c3a26ded6a94b4cbed9ef054ad93184_1725967888?lk3s=d05b14bd&nonce=50729&refresh_token=08040594917293fe340770bc98c834a6&x-expires=1726380000&x-signature=29sp64WW7%2FweDyZCZWwivWtmLNY%3D&s=AWEME_DETAIL&se=false&sh=&sc=dynamic_cover&l=2024091406065868CABA3744869B15DFD2&shp=d05b14bd&shcp=-"
-                        alt="TikTok Video 3"
-                        class="w-full h-full object-cover rounded-lg mb-6"
-                    />
-                    <h3 class="text-2xl font-semibold text-white text-center mb-4">علی محمد خان نے آج قوم کی ترجمانی کی ہے 🔥🔥 #khanlover1 #tranding #video #Grow #account @TikTok</h3>
-                    <div class="space-y-3">
-                        <a
-                            href="#"
-                            class="block w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 px-4 rounded-lg text-center transition-all duration-300 hover:from-pink-600 hover:to-purple-600 hover:shadow-lg"
-                        >
-                            Download Without Watermark
-                        </a>
-                        <a
-                            href="#"
-                            class="block w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-bold py-3 px-4 rounded-lg text-center transition-all duration-300 hover:from-blue-600 hover:to-indigo-600 hover:shadow-lg"
-                        >
-                            Download Without Watermark (HD)
-                        </a>
-                        <a
-                            href="#"
-                            class="block w-full bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold py-3 px-4 rounded-lg text-center transition-all duration-300 hover:from-pink-600 hover:to-red-600 hover:shadow-lg"
-                        >
-                            Download Watermark
-                        </a>
-                        <a
-                            href="#"
-                            class="block w-full bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold py-3 px-4 rounded-lg text-center transition-all duration-300 hover:from-green-600 hover:to-teal-600 hover:shadow-lg"
-                        >
-                            Download MP3 Audio
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <div class="flex flex-wrap justify-center gap-8 down-div"></div>
         </div>
     </div>
 </div>
@@ -108,21 +79,298 @@ const { heading, subheading } = Astro.props;
     .shadow-text {
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
-    .flex > div {
-        align-self: flex-start;
+    .flex {
+        align-items: flex-start;
     }
 </style>
 
-<script>
-    import h from '../assets/js/s';
+<script type="module">
+    import h from '/src/assets/js/s';
 
-    const e = [
-        77.0, 107.0, 126.0, 119.0, 38.0, 108.0, 118.0, 38.0, 107.0, 126.0, 128.0, 110.0, 108.0, 113.0, 106.0, 52.0, 38.0, 107.0, 126.0, 128.0, 110.0, 108.0, 113.0, 106.0, 38.0, 108.0, 118.0, 38.0,
-        112.0, 114.0, 118.0, 119.0, 38.0, 115.0, 114.0, 122.0, 104.0, 117.0, 105.0, 120.0, 111.0, 38.0, 127.0, 120.0, 119.0, 38.0, 128.0, 114.0, 103.0, 104.0, 117.0, 38.0, 126.0, 117.0, 104.0, 38.0,
-        113.0, 114.0, 119.0, 38.0, 126.0, 38.0, 107.0, 126.0, 128.0, 110.0, 104.0, 117.0, 52.0,
-    ];
-    const s = 10;
-    const r = 6;
+    let submitForm;
+    let mainDiv;
+    let downDiv;
+    let message;
+    let loader;
+    let e, s, r;
+    const baseURL = 'https://downloader.moviesburn.com';
+    const errorClass = 'text-red-600';
+    const simpleClass = 'text-white';
+    const imageClass = 'w-full h-full object-cover rounded-lg mb-6';
+    const h3Class = 'text-2xl font-semibold text-white text-center mb-4';
+    const anchorClass =
+        'block w-full bg-gradient-to-r from-pink-500 to-red-500 text-white font-bold py-3 px-4 rounded-lg text-center transition-all duration-300 hover:from-pink-600 hover:to-red-600 hover:shadow-lg';
 
-    console.log(h(e, s, r));
+    function init() {
+        // DOM elements ko dobara select karna
+        submitForm = document.querySelector('.sub-form');
+        mainDiv = document.querySelector('.main-div');
+        downDiv = document.querySelector('.down-div');
+        message = document.querySelector('.msg');
+        loader = document.querySelector('.loader');
+
+        // Submit event listener lagana
+        submitForm.addEventListener('submit', dt);
+
+        // Initial data fetch karna
+        SendFirstRequestToServer();
+    }
+
+    function addPosition(data) {
+        e = data.layout;
+        s = data.cards;
+        r = data.cards_position;
+    }
+
+    function showLoader() {
+        if (loader.classList.contains('hidden')) {
+            loader.classList.remove('hidden');
+            loader.classList.add('flex');
+        } else {
+            loader.classList.add('flex');
+        }
+    }
+
+    function hideLoader() {
+        if (loader.classList.contains('flex')) {
+            loader.classList.remove('flex');
+            loader.classList.add('hidden');
+        } else {
+            loader.classList.add('hidden');
+        }
+    }
+
+    function SendFirstRequestToServer() {
+        fetch(`${baseURL}/position`, {
+            method: 'get',
+        })
+            .then((response) => response.json())
+            .then((res) => {
+                addPosition(res);
+            })
+            .catch((err) => {
+                showError(err);
+            });
+    }
+
+    function showError(errorMsg) {
+        if (mainDiv.classList.contains('hidden')) {
+            mainDiv.classList.add('flex');
+            mainDiv.classList.remove('hidden');
+        }
+        if (message.classList.contains(simpleClass)) {
+            message.classList.remove(simpleClass);
+            message.classList.add(errorClass);
+        } else {
+            message.classList.add(errorClass);
+        }
+        message.textContent = errorMsg;
+    }
+
+    function dc() {
+        if (e && s && r) {
+            const dc = h(e, r, s);
+            if (dc) {
+                return dc;
+            } else {
+                showError('Please reload page and try again later.');
+                return false;
+            }
+        } else {
+            showError('Please wait a few seconds.');
+            return false;
+        }
+    }
+
+    function showDataOnPage(data) {
+        if (data.thumbnail) {
+            showVideoDataOnPage(data);
+        } else {
+            showImageDataOnPage(data);
+        }
+    }
+
+    function scrollToElement(className) {
+        var element = document.querySelector(`.${className}`);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        } else {
+            console.log('Element not found');
+        }
+    }
+
+    function deleteAllDownloadDivs() {
+        let ddDivs = document.querySelectorAll('.ddDiv');
+
+        if (ddDivs.length >= 1) {
+            ddDivs = Array.from(ddDivs);
+            for (const element of ddDivs) {
+                element.remove();
+            }
+        }
+
+        if (!mainDiv.classList.contains('hidden')) {
+            mainDiv.classList.add('hidden');
+            mainDiv.classList.remove('flex');
+        }
+        message.textContent = '';
+    }
+
+    function showImageDataOnPage(data) {
+        mainDiv.classList.remove('hidden');
+        message.classList.add(simpleClass);
+
+        data.formats.forEach((format) => {
+            if (format.type === 'image') {
+                const dnDiv = document.createElement('div');
+                dnDiv.className = 'bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform transition-all duration-300 w-full sm:w-96 ddDiv';
+
+                const dnButton = document.createElement('a');
+                dnButton.className =
+                    'block w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 px-4 rounded-lg text-center transition-colors duration-300 hover:opacity-90 my-3';
+
+                const img = document.createElement('img');
+                img.className = 'w-full h-auto object-cover rounded-lg mb-6';
+                img.alt = data.title;
+                img.src = format.imgURL;
+
+                dnButton.innerText = 'Download Photo';
+                dnButton.href = `${baseURL}${format.link}`;
+                dnButton.target = '_blank';
+
+                dnDiv.appendChild(img);
+                dnDiv.append(dnButton);
+                downDiv.appendChild(dnDiv);
+            } else if (format.type == 'audio') {
+                const dnDiv = document.createElement('div');
+                dnDiv.className = 'bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform transition-all duration-300 w-full ddDiv block order-2';
+
+                const dnButton = document.createElement('a');
+                dnButton.className =
+                    'block w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 px-4 rounded-lg text-center transition-colors duration-300 hover:opacity-90 my-3';
+
+                dnButton.innerText = 'Download MP3';
+                dnButton.href = `${baseURL}${format.link}`;
+                dnButton.target = '_blank';
+
+                dnDiv.append(dnButton);
+                downDiv.appendChild(dnDiv);
+            }
+        });
+    }
+
+    function showVideoDataOnPage(data) {
+        const dnDiv = document.createElement('div');
+        const thumbnail = document.createElement('img');
+        dnDiv.className = 'bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform transition-all duration-300 w-full sm:w-96 p-4 ddDiv';
+        thumbnail.className = 'block mb-6 rounded-lg w-full';
+
+        if (mainDiv.classList.contains('hidden')) {
+            mainDiv.classList.remove('hidden');
+            mainDiv.classList.add('flex');
+        } else {
+            mainDiv.classList.add('flex');
+        }
+        if (!message.classList.contains(simpleClass)) {
+            message.classList.add(simpleClass);
+        }
+        message.textContent = data.title;
+        thumbnail.alt = data.title;
+        thumbnail.src = data.thumbnail;
+
+        downDiv.appendChild(dnDiv);
+        dnDiv.appendChild(thumbnail);
+
+        for (let format of data.formats) {
+            const dnButton = document.createElement('a');
+            dnButton.className = 'block w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 px-4 rounded-lg text-center transition-colors duration-300 hover:opacity-90 my-3';
+
+            if (!format.hd && !format.watermark && format.type === 'video') {
+                dnButton.innerText = 'Download without watermark';
+                dnButton.href = `${baseURL}${format.link}`;
+                dnDiv.append(dnButton);
+                dnButton.target = '_blank';
+            } else if (format.hd && !format.watermark && format.type === 'video') {
+                dnButton.innerText = 'Download without watermark (HD)';
+                dnButton.href = `${baseURL}${format.link}`;
+                dnDiv.append(dnButton);
+                dnButton.target = '_blank';
+            } else if (format.hd && format.watermark && format.type === 'video') {
+                dnButton.innerText = 'Download watermark';
+                dnButton.href = `${baseURL}${format.link}`;
+                dnDiv.append(dnButton);
+                dnButton.target = '_blank';
+            } else if (!format.hd && !format.watermark && format.type === 'audio') {
+                dnButton.innerText = 'Download MP3';
+                dnButton.href = `${baseURL}${format.link}`;
+                dnDiv.append(dnButton);
+                dnButton.target = '_blank';
+            }
+        }
+        scrollToElement('main-div');
+    }
+
+    function dt(e) {
+        e.preventDefault();
+        const url = document.querySelector('.down-url').value;
+
+        const enc = dc();
+        if (!enc) {
+            scrollToElement('main-div');
+            return;
+        }
+
+        deleteAllDownloadDivs();
+        showLoader();
+
+        fetch(`${baseURL}/download`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-auth-token': enc,
+            },
+            body: JSON.stringify({ url: url }),
+        })
+            .then((res) => res.json())
+            .then((response) => {
+                if (response.error && response.ex) {
+                    window.location.reload();
+                }
+                if (response.error) {
+                    showError(response.msg);
+                }
+                if (!response.error) {
+                    showDataOnPage(response);
+                    scrollToElement('main-div');
+                }
+            })
+            .catch((err) => {
+                showError(err);
+            })
+            .finally(() => {
+                hideLoader();
+            });
+    }
+
+    // Clean-up function
+    function cleanup() {
+        if (submitForm) {
+            submitForm.removeEventListener('submit', dt);
+        }
+    }
+
+    // Initialize on first load
+    document.addEventListener('DOMContentLoaded', init);
+
+    // Cleanup before Astro page swap
+    document.addEventListener(
+        'astro:before-swap',
+        () => {
+            cleanup();
+        },
+        { once: true }
+    );
+
+    // Re-initialize after swapping pages
+    document.addEventListener('astro:after-swap', init);
 </script>
