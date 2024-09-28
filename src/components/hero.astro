@@ -5,7 +5,7 @@ const { heading, subheading } = Astro.props;
 
 <div class="relative isolate px-6 pt-10 lg:px-8 pb-28 rounded-lg bg-gray-800">
     <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true"></div>
-    <div class="mx-auto max-w-2xl">
+    <div class="mx-auto max-w-2xl another">
         <div class="hidden sm:mb-8 sm:flex sm:justify-center">
             <div class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20"></div>
         </div>
@@ -68,9 +68,9 @@ const { heading, subheading } = Astro.props;
 <div class="bg-gradient-to-br py-16 px-4 sm:px-6 lg:px-8 main-div hidden">
     <div class="max-w-7xl mx-auto">
         <h2></h2>
-        <h2 class="text-2xl font-extrabold text-center mb-4 shadow-text msg"></h2>
+        <h2 class="text-2xl font-extrabold text-center mb-4 shadow-text msg break-all"></h2>
         <div class="flex flex-wrap justify-center gap-8">
-            <div class="flex flex-wrap justify-center gap-8 down-div"></div>
+            <div class="gap-8 down-div grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1"></div>
         </div>
     </div>
 </div>
@@ -93,7 +93,7 @@ const { heading, subheading } = Astro.props;
     let message;
     let loader;
     let e, s, r;
-    const baseURL = 'https://downloader.moviesburn.com';
+    const baseURL = 'http://127.0.0.1:5000';
     const errorClass = 'text-red-600';
     const simpleClass = 'text-white';
     const imageClass = 'w-full h-full object-cover rounded-lg mb-6';
@@ -223,14 +223,15 @@ const { heading, subheading } = Astro.props;
         data.formats.forEach((format) => {
             if (format.type === 'image') {
                 const dnDiv = document.createElement('div');
-                dnDiv.className = 'bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform transition-all duration-300 w-full sm:w-96 ddDiv';
+                dnDiv.className = 'bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform transition-all duration-300 w-full ddDiv';
 
+                const dnButtonDiv = document.createElement('div');
                 const dnButton = document.createElement('a');
                 dnButton.className =
                     'block w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 px-4 rounded-lg text-center transition-colors duration-300 hover:opacity-90 my-3';
 
                 const img = document.createElement('img');
-                img.className = 'w-full h-auto object-cover rounded-lg mb-6';
+                img.className = 'h-auto object-cover rounded-lg mb-6 w-full max-h-[400px]';
                 img.alt = data.title;
                 img.src = format.imgURL;
 
@@ -239,11 +240,12 @@ const { heading, subheading } = Astro.props;
                 dnButton.target = '_blank';
 
                 dnDiv.appendChild(img);
-                dnDiv.append(dnButton);
+                dnButtonDiv.append(dnButton);
+                dnDiv.append(dnButtonDiv);
                 downDiv.appendChild(dnDiv);
             } else if (format.type == 'audio') {
                 const dnDiv = document.createElement('div');
-                dnDiv.className = 'bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform transition-all duration-300 w-full ddDiv block order-2';
+                dnDiv.className = `bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform transition-all duration-300 w-full ddDiv block order-2 lg:col-span-${data.formats.length - 1} md:col-span-2 col-span-1`;
 
                 const dnButton = document.createElement('a');
                 dnButton.className =
@@ -255,15 +257,26 @@ const { heading, subheading } = Astro.props;
 
                 dnDiv.append(dnButton);
                 downDiv.appendChild(dnDiv);
+
+                const anotherButton = document.createElement('button');
+                anotherButton.className =
+                    'block w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 px-4 rounded-lg text-center transition-colors duration-300 hover:opacity-90 my-3';
+                anotherButton.textContent = 'Download Another';
+                anotherButton.addEventListener('click', () => {
+                    document.querySelector('.another').scrollIntoView({ behavior: 'smooth' });
+                });
+
+                dnDiv.appendChild(anotherButton);
             }
         });
     }
 
     function showVideoDataOnPage(data) {
         const dnDiv = document.createElement('div');
+        const dnButtonDiv = document.createElement('div');
         const thumbnail = document.createElement('img');
-        dnDiv.className = 'bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform transition-all duration-300 w-full sm:w-96 p-4 ddDiv';
-        thumbnail.className = 'block mb-6 rounded-lg w-full';
+        dnDiv.className = 'bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform transition-all duration-300 w-full w-96 md:w-[650px] md:flex p-4 ddDiv gap-5 col-span-2';
+        thumbnail.className = 'block mb-6 md:mb-0 rounded-lg md:w-[50%] md:h-[345px]';
 
         if (mainDiv.classList.contains('hidden')) {
             mainDiv.classList.remove('hidden');
@@ -280,6 +293,7 @@ const { heading, subheading } = Astro.props;
 
         downDiv.appendChild(dnDiv);
         dnDiv.appendChild(thumbnail);
+        dnDiv.appendChild(dnButtonDiv);
 
         for (let format of data.formats) {
             const dnButton = document.createElement('a');
@@ -288,25 +302,35 @@ const { heading, subheading } = Astro.props;
             if (!format.hd && !format.watermark && format.type === 'video') {
                 dnButton.innerText = 'Download without watermark';
                 dnButton.href = `${baseURL}${format.link}`;
-                dnDiv.append(dnButton);
+                dnButtonDiv.append(dnButton);
                 dnButton.target = '_blank';
             } else if (format.hd && !format.watermark && format.type === 'video') {
                 dnButton.innerText = 'Download without watermark (HD)';
                 dnButton.href = `${baseURL}${format.link}`;
-                dnDiv.append(dnButton);
+                dnButtonDiv.append(dnButton);
                 dnButton.target = '_blank';
             } else if (format.hd && format.watermark && format.type === 'video') {
                 dnButton.innerText = 'Download watermark';
                 dnButton.href = `${baseURL}${format.link}`;
-                dnDiv.append(dnButton);
+                dnButtonDiv.append(dnButton);
                 dnButton.target = '_blank';
             } else if (!format.hd && !format.watermark && format.type === 'audio') {
                 dnButton.innerText = 'Download MP3';
                 dnButton.href = `${baseURL}${format.link}`;
-                dnDiv.append(dnButton);
+                dnButtonDiv.append(dnButton);
                 dnButton.target = '_blank';
             }
         }
+        const anotherButton = document.createElement('button');
+        anotherButton.className =
+            'block w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold py-3 px-4 rounded-lg text-center transition-colors duration-300 hover:opacity-90 my-3';
+        anotherButton.textContent = 'Download Another';
+        anotherButton.addEventListener('click', () => {
+            document.querySelector('.another').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        dnButtonDiv.appendChild(anotherButton);
+
         scrollToElement('main-div');
     }
 
