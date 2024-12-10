@@ -1,4 +1,4 @@
 User-agent: *
-Allow: /
+disallow: /
 
 Sitemap: http://astros.zank.studio/sitemap-index.xml
