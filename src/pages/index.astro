@@ -1,28 +1,151 @@
 ---
 import Container from "@components/container.astro";
-import Faq from "@components/faq.astro";
-import Features from "@components/features.astro";
-import Others from "@components/others.astro";
 import Hero from "@components/hero.astro";
-import Newsletter from "@components/newsletter.astro";
-import Testimonials from "@components/testimonials.astro";
-
 import Layout from "@layouts/Layout.astro";
 import { changeLanguage } from "i18next";
-import { t, changeLanguage } from "i18next";
+
 changeLanguage("en");
+const faqs = [
+	{
+		title: "How to Download video Tiktok no watermark?",
+		description: `Open Tik Tok app on your phone/or Web on your browser.
+Choose whatever video you want to download.
+Click to the Share button at the right bottom.
+Click the Copy Link button.
+Go back to webname.com and paste your download link to the field above then click to the Download button.
+Wait for our server to do its job and then, save the video to your device.`,
+	},
+	{
+		title: "How to get the TikTok video download link?",
+		description: `Open your TikTok application
+Choose the TikTok video that you want to download
+Click Share and at the Share options, find Copy Link button
+Your download URL is ready on the clipboard.
+For example, the link would look like this
+https://v.douyin.com/3vn57r/
+or
+https://www.tiktok.com/@philandmore/video/6805867805452324102
+or
+https://m.tiktok.com/v/6805867805452324102.html
+and more...`,
+	},
+];
 ---
 
-
-<Layout>
-	<main id="main-content">
-
-		<Hero />
-		<Features />
-		<Others />
-		<Testimonials />
-		<Newsletter />
-		<Faq />
-
-    	</main>
+<Layout title="Tikloader Downloader title" description="TikLoader is the best downloader">
+	<Container>
+		<Hero heading="TikTok Downloader" subheading="TikTok Video Downloader Without Watermark."/>
+		<div class="content">
+			<div class="relative mx-auto px-4 lg:px-8 my-10 max-w-screen-2xl">
+				<div class="mx-auto">
+					<h2 class="font-semibold text-2xl leading-tight text-black dark:text-white mt-10 mb-2">TikTok Video Downloader: Easy and Fast Solution</h2>
+					<p class="text-base leading-8 text-gray-900 dark:text-gray-100 mb-10">
+						TikTok is full of fun and creative videos. Sometimes, you might want to download these videos to your device so you can watch them offline or share them with friends. Here, we'll talk
+						about an easy and fast TikTok video downloader tool that will meet all your needs.
+					</p>
+			
+					<h2 class="font-semibold text-2xl leading-tight text-black dark:text-white mt-10 mb-2">What is a TikTok Video Downloader?</h2>
+					<p class="text-base leading-8 text-gray-900 dark:text-gray-100 mb-10">
+						A TikTok video downloader is a tool that lets you download videos from TikTok directly to your device. You don’t need any extra software or app to use it.
+					</p>
+			
+					<h2 class="font-semibold text-2xl leading-tight text-black dark:text-white mt-10 mb-2">Features You'll Like:</h2>
+					<ul class="list-disc ml-6">
+						<li>
+							<p class="text-base leading-8 text-gray-900 dark:text-gray-100"><strong>Simple and User-Friendly Interface:</strong> It’s very easy to use. Just copy the video URL and click the download button.</p>
+						</li>
+						<li>
+							<p class="text-base leading-8 text-gray-900 dark:text-gray-100"><strong>High-Quality Downloads:</strong> The video quality remains the same as the original.</p>
+						</li>
+						<li>
+							<p class="text-base leading-8 text-gray-900 dark:text-gray-100"><strong>No Watermark:</strong> You can download videos without any watermark, so they look clean and professional.</p>
+						</li>
+						<li>
+							<p class="text-base leading-8 text-gray-900 dark:text-gray-100"><strong>Fast Download Speed:</strong> The download speed is fast, giving you quick results.</p>
+						</li>
+						<li>
+							<p class="text-base leading-8 text-gray-900 dark:text-gray-100"><strong>Works on All Devices:</strong> This tool works on any device and browser, whether you're using a PC, Mac, or mobile device.</p>
+						</li>
+					</ul>
+			
+					<h2 class="font-semibold text-2xl leading-tight text-black dark:text-white mt-10 mb-2">How to Use It:</h2>
+					<ol class="list-decimal ml-6">
+						<li>
+							<p class="text-base leading-8 text-gray-900 dark:text-gray-100"><strong>Copy the Video URL:</strong> Go to TikTok, find the video you want to download, and copy its URL.</p>
+						</li>
+						<li>
+							<p class="text-base leading-8 text-gray-900 dark:text-gray-100"><strong>Paste the URL:</strong> Open the TikTok video downloader tool in your browser and paste the URL.</p>
+						</li>
+						<li>
+							<p class="text-base leading-8 text-gray-900 dark:text-gray-100"><strong>Click the Download Button:</strong> After pasting the URL, click the download button and the video will start downloading.</p>
+						</li>
+						<li>
+							<p class="text-base leading-8 text-gray-900 dark:text-gray-100"><strong>Enjoy Your Video:</strong> Once the download is complete, you can watch the video on your device and share it with friends.</p>
+						</li>
+					</ol>
+			
+					<h2 class="font-semibold text-2xl leading-tight text-black dark:text-white mt-10 mb-2">Conclusion</h2>
+					<p class="text-base leading-8 text-gray-900 dark:text-gray-100 mb-10">
+						A TikTok video downloader is a handy tool that allows you to easily download TikTok videos. It lets you enjoy your favorite videos offline and share them with friends without any hassle. This tool saves you time and gives you a smooth experience.
+					</p>
+			
+					<h2 class="font-semibold text-2xl leading-tight text-black dark:text-white mt-10 mb-2">Note:</h2>
+					<p class="text-base leading-8 text-gray-900 dark:text-gray-100 mb-10">
+						TikTok is not a tool of TikTok, and we have no relationship with TikTok or ByteDance Ltd. We only support TikTok users to download TikTok videos without logos and without any trouble. If you have problems with sites like Tikmate or SSSTiktok, try our TikTok downloader. We are constantly updating to make it easy for users to download TikTok videos. Thank you!
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="fag">
+			<div class="mx-auto max-w-screen-2xl px-6 py-10 dark:bg-gray-800">
+				<div class="mx-auto divide-y divide-gray-300 dark:divide-gray-700">
+					<h2 class="text-2xl font-bold leading-10 tracking-tight text-gray-900 dark:text-white">FAQ</h2>
+					<dl class="mt-10 space-y-6 divide-y divide-gray-300 dark:divide-gray-700">
+						{
+							faqs.map((faq, index) => (
+								<div class="pt-6" x-data="{ open: false }">
+									<dt>
+										<button
+											type="button"
+											class="flex w-full items-start justify-between text-left text-gray-900 dark:text-white"
+											@click="open = !open"
+											:aria-expanded="open.toString()"
+											:class="{'bg-gray-100 dark:bg-gray-800': open}">
+											<span class="text-base font-semibold leading-7" :class="{'text-indigo-100': open}">{faq.title}</span>
+											<span class="ml-6 flex h-7 items-center">
+												<svg
+													class="h-6 w-6 transform transition-transform"
+													fill="none"
+													viewBox="0 0 24 24"
+													stroke-width="1.5"
+													stroke="currentColor"
+													aria-hidden="true"
+													:class="{'rotate-180': open}">
+													<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6"></path>
+												</svg>
+											</span>
+										</button>
+									</dt>
+									<dd
+										x-transition:enter="transition ease-out duration-150"
+										x-transition:enter-start="opacity-0 transform scale-95"
+										x-transition:enter-end="opacity-100 transform scale-100"
+										x-transition:leave="transition ease-in duration-150"
+										x-transition:leave-start="opacity-100 transform scale-100"
+										x-transition:leave-end="opacity-0 transform scale-95"
+										class="mt-2 pr-12"
+										x-show="open">
+										<span class="text-base leading-7 text-gray-600 dark:text-gray-300 break-words">
+											<span set:html={faq.description}></span>
+										</span>
+									</dd>
+								</div>
+							))
+						}
+					</dl>
+				</div>
+				
+			</div>
+		</div>
+		</Container>
 </Layout>
